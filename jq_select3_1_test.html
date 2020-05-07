@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 객체 조작</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<body>
+    <h1>객체 조작</h1>
+    <h2>p.219</h2>
+    <h3>html() / text() 메서드</h3>
+    <p>html()는 하위 요소를 가져오거나 새로운 요소를 생성 (기존 하위 요소는 제거) 하는 메서드이며
+        text() 텍스트를 가져오거나 하위 요소에 있는 텍스트를 제거하고 새로운 텍스트를 생성합니다.
+    </p>
+    <script>
+        $(function(){
+            // .html() : html 요소를 가져오거나 새로운 요소로 대체
+            // .html() : 가져와
+            // .html("<p>text</p>") : 설정해
+            // .text() : 텍스트 (=컨텐츠)를 가져오거나 새로운 텍스트로 대체
+            var result1 = $("#sec_1").html(); //src : 경로 . value : 값 --> 경로값
+            console.log(result1);
+            $("#sec_1 p").html("<a href=\"#\">text1</a>");
+            var result2 = $("#sec_2").text();
+            console.log(result2);
+            $("#sec_2 p").text("<a href=\"#\">가짜글자</a>");
+            // .attr() : 요소의 속성을 알아오거나, 새로운 속성을 생성/변경
+            // .removeAttr() : 속성을 변경
+           var result3 = $("#sec_3 img").attr("src");
+            console.log("src 속성값 : "+result3);
+           // $("#sec_3 img").attr("width",300);
+           $("#sec_3 img").attr({
+               width:200,
+               src:"https://via.placeholder.com/150/ff6633/ffffff",
+               alt:"바위"
+           }).removeAttr("border");
+           // $(선택자) .css() .attr() .removeAttr() .html() <== 체이닝 기법
+        });
+    </script>
+    <section id="sec_1">
+        <h2>
+            <em>html() 매서드</em>
+        </h2>
+        <p>내용 1 - Lorem, ipsum dolor.</p>
+    </section>
+    <section id="sec_2">
+        <h2>
+            <em>text() 매서드</em>
+        </h2>
+        <p>내용 2 - Lorem, ipsum dolor.</p>
+    </section>
+    <section id="sec_3">
+        <h2>이미지의 속성</h2>
+        <img src='https://via.placeholder.com/150' alt='가위' border='2'>
+    </section>
+</body>
+</html>

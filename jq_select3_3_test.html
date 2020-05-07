@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function(){
+            //.addClass() : 선택한 요소에 클래스를 생성한다.
+            //.removeClass("클래스이름") : 선택한 요소에서 지정한 클래스를 삭제한다.
+            //.toggleClass("클래스이름") : 선택한 요소에 지정한 클래스가 없으면 생성, 있으면 삭제
+            //.hasClass("클래스이름") : 선택한 요소에 지정한 클래스가 있으면 true, 없으면 false
+            //$("#p1").addClass(A) :#P1 요소를 찾아서 ~A에 추가해
+            $("#p1").addClass("aqua"); //aqua라는 클래스를 추가해! (add)
+            $("#p2").removeClass("red").removeAttr("class"); // red라는 클래스를 삭제해! (remove)
+            $("#p4").click(function(){
+                $(this).toggleClass("green");
+            });
+            if($("#p5").hasClass("yellow")) {
+                $("#p6").text("#p5에 .yellow가 있다.");
+            } else{
+                $("#p6").text("#p5에 .yellow가 없다.");
+            }
+        });
+    </script>
+    <style>
+        .aqua{
+            background: aqua;
+        }
+        .red {
+            color: red;
+        }
+        .green{
+            color: #fff;
+            background: green;
+        }
+        .yellow{
+        border :1px solid yellow;
+        padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>객체 조작 매서드</h1>
+    <h2>p.222~223</h2>
+    <p>addClass() vs removeClass(), toggleClass(), hasClass() 매서드에 대해서 알아봅시다.</p>
+    <P id="p1">내용 1 </P>
+    <P id="p2" class="red">내용 2 </P>
+    <P id="p3">내용 3 </P>
+    <P id="p4" class="green">내용 4 </P>
+    <P id="p5" class="yellow">내용 5 </P>
+    <P id="p6">내용 6 </P>
+</body>
+</body>
+</body>
+</body>
+</html>

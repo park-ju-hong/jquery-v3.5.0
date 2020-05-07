@@ -5,14 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>탐색 선택자</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script>
-    $(document).ready(function(){
-    
-    });
-    </script>
+    <script src="../script/script/jquery-3.5.1.slim.min.js"></script>
+    <!-- jquery library 사용
+    1. js 파일을 다운로드 연결 : 권장(개발 완료 후)
+    2. CDN 통해서 연결(network를 통해서 인터넷 장애)
+    -->
 </head>
 <body>
-    
+    <h1>제이쿼리 탐색 선택자</h1>
+    <p>p.194</p>
+    <p>first-of-type 선택자는 선택한 요소의 무리 중 첫번째 요소만 선택합니다.</p>
+    <ul>
+        <li>first-of-type</li>
+        <li>last-of-type</li>
+        <li>목록 1-3</li>
+    </ul>
+    <ul>
+        <li>내용 1-1</li>
+        <li>내용 1-2</li>
+        <li>내용 1-3</li>
+    </ul>
+    <script>
+     $(function(){
+       //    console.log("li의 갯수 : "+$("li").length);
+        $("li:first-of-type").css("background-color","pink")
+        $("li:last-of-type").css("background-color","skyblue")
+     });
+
+        </script>
 </body>
 </html>

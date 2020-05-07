@@ -1,0 +1,53 @@
+body{
+    font:16px/1.5 "Noto Sans KR",sans-serif;
+    color:#333;
+}
+a,a:link{
+    text-decoration: none;
+    color: inherit;
+}
+ul{
+    list-style: none;
+}
+#side {
+    transition:all 0.3s;
+    width: 300px;
+    background: slateblue;
+    height: 100%;
+    position: fixed;
+    left: -290px;
+    top: 0;
+    z-index: 9999;
+    color: #fff;
+    box-shadow: 3px 0 7px 0 rgba(0,0,0,.2);
+}
+.open {
+    left: 0 !important;
+}
+.onoff_btn{
+    position: absolute;
+    border-radius:50%;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: gray;
+    transform: translate(50%,-50%);
+    text-align: right;
+    top: 50%;
+    padding: 0 10px 0 0;
+    box-sizing: border-box;
+    line-height: 50px;
+    font-size: 2em;
+    box-shadow: 3px 0 7px 0 rgba(0,0,0,.2);
+}
+.logo {
+    margin: 5% 2%;
+    height: 100px;
+    background: blueviolet;
+    text-align: center;
+    font-size: 20px;   
+  }
+#gnb li{
+    padding: 15px 0;
+    border-bottom: 1px solid #f9f9f9;
+}

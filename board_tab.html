@@ -68,22 +68,24 @@
             display: inline-block;
             margin: 17px 0 0 0 ;
         }
-        .board_title li.on {
-            background: salmon;
-            border-top-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
+        
         .board_title li.on a {
             display: block;
             color: #fff;
             padding: 5px 10px;
+            background: salmon;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
         #notice{
             list-style: square inside;
             margin: 0 0 0 1em;
         }
-        #gallery{
+        .hide {
             display: none;
+        }
+
+        #gallery{
             position: absolute;
             top:0;
             left:0;
@@ -93,7 +95,15 @@
         }
         #gallery li{
             display: inline-block;
+            width: 100px;
+            height: 130px;
+            padding: 0 20px 0 0;
         }
+        figure{
+            width: 100px;
+            height: 130px;
+        }
+
         #banner{
             width: 30%; /* 0.3 x1200 =360px 자동환산 */
             /*여백, 테두리 등을 포함해서 30% 이내에 */
@@ -116,19 +126,46 @@
     </style>
     <script>
         $(function(){
-            $(".board_title li").click(function(){
-                if(!$(this).hasClass("on")){
-                    $("#gallery").css("display","block");
-                } else {
-                    $("#gallery").css("display","none");
-                }
-            });
+            tab();
+            popup();
+        });
+            
         //갤러리 누르면 ~ 갤러리 보여줘 (#notice는 감춰!)
         //공지사항 첫번쨰 게시물을 클릭하면 팝업창을 보여줘!
+        function tab(){
+            notice_on();
+            gallery_on();
+        }
+        function notice_on(){
+            $(".board_title li").click(function(){
+              //   console.log("클릭한 LI : "+$(this).index());
+              if($(this).hasClass("on")) {
+              $(this).siblings().removeClass("on");
+              $(this).addClass("on");
+              $("#gallery").toggleClass("hide");
+              // on을 갖고 있지 않다면
+              // 기존에 누군가 갖고 있던 on을 삭제하고,
+              // 지금 클릭한 (on이 없던것에) 추가해
+              }
+            });
+        }
+        function gallery_on(){
+
+        }
+            function popup(){
+                popup_open();
+                popup_close();
+            };
+                function popup_open(){
                 $("#notice li:eq(0)").click(function(){
-                $("#popup").css("display","block");
-        })
-        });
+                    $("#popup").css("display","block");
+                });
+            }
+            function popup_close(){
+                $("#popup input[type=button]").click(function(){
+                    $(this).parent().css("display","none");
+                });
+            };
     </script>
 </head>
 <body>
@@ -163,28 +200,27 @@
                         <li>오픈 기념 신규 회원가입 무료배송 이벤트 [2020-01-20]</li>
                         <li>사세 확장으로 인한 웹디자이너/MD 채용공고 [2019-11-15]</li> 
                     </ul>
-                    <ul id="gallery">
+                    <ul id="gallery" class="hide">
                         <li>
                             <figure>
-                            <img src="https://via.placeholder.com/100" alt='placeholder'>
+                            <img src="https://via.placeholder.com/100x100/ff6633/ffffff?text=dummy+image" alt="dummy">
                             <figcaption>갤러리 1</figcaption>
                             </figure>
                         </li>
                         <li>
                             <figure>
-                            <img src="https://via.placeholder.com/100" alt='placeholder'>
+                            <img src="https://via.placeholder.com/100x100/ff6633/ffffff?text=dummy+image" alt="dummy"> 
                             <figcaption>갤러리 2</figcaption>
                             </figure>
                         </li>
                         <li>
                             <figure>
-                            <img src="https://via.placeholder.com/100" alt='placeholder'>
+                            <img src="https://via.placeholder.com/100x100/ff6633/ffffff?text=dummy+image" alt="dummy">
                             <figcaption>갤러리 3</figcaption>
                             </figure>
                         </li>
                     </ul>
             </div>
-            
             </div>
             <div id="banner">배너영역</div>
             <div id="shortcut">바로가기영역</div> <!--./contents-->

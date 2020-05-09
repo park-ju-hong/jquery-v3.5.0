@@ -139,7 +139,7 @@
         function notice_on(){
             $(".board_title li").click(function(){
               //   console.log("클릭한 LI : "+$(this).index());
-              if($(this).hasClass("on")) {
+              if(!$(this).hasClass("on")) {
               $(this).siblings().removeClass("on");
               $(this).addClass("on");
               $("#gallery").toggleClass("hide");

@@ -135,6 +135,7 @@
         function tab(){
     
             $(".board_title li").click(function(){
+<<<<<<< HEAD
                // console.log("클릭한 LI : "+$(this).index());
               if(!$(this).hasClass("on")) {
                 $(this).siblings().removeClass("on");
@@ -143,6 +144,16 @@
                 // on을 갖고 있지 않다면
                 // 기존에 누군가 갖고 있던 on을 삭제하고,
                 // 지금 클릭한 (on이 없던것에) 추가해
+=======
+              //   console.log("클릭한 LI : "+$(this).index());
+              if(!$(this).hasClass("on")) {
+              $(this).siblings().removeClass("on");
+              $(this).addClass("on");
+              $("#gallery").toggleClass("hide");
+              // on을 갖고 있지 않다면
+              // 기존에 누군가 갖고 있던 on을 삭제하고,
+              // 지금 클릭한 (on이 없던것에) 추가해
+>>>>>>> 1d24b2d16681b32b2b0083bd5b8d9717a81f3da0
               }
             });
         }

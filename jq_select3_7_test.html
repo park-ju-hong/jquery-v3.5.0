@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수치 조작 메서드</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #box_wrap{
+            width: 300px;
+            height: 200px;
+            margin: 50px auto 0; /* 위 좌-우 아래 */
+            position: relative;
+            background-color: #ccc;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 100px;
+            top: 50px;
+            background-color: lawngreen;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        var $txt1 = $(".txt_1 span"), //var 키워드를 이용해서 변수를 한번에 3개를 선언
+             $txt2 = $(".txt_2 span"), // var a=10,b=15,c=5;
+        $box = $(".box");
+         // 변수 선언시 $,_ 를 특수기호로 사용가능. 나머지는 불가능 !!
+
+        var off_t = $box.offset().top; // 문서 윗쪽에서 얼마나 떨어져 있는지 수치값
+        var pos_t = $box.position().top; // 기준이 되는 (relative) 요소로부터 얼마나 떨어져있는지 수치값 계산
+
+        $txt1.text(off_t); // 문서에 출력해
+        $txt2.text(pos_t);
+    });
+    </script>
+</head>
+<body>
+    <h1>요소 위치 메서드</h1>
+    <h2>p.230</h2>
+    <p>요소 위치 메서드는 position() 메서드와 offset() 메서드가 있습니다. position() 메서드는
+        포지션 기준이 되는 요소를 기준으로 가로,세로로 얼마나 떨어져 있는지를 반환하거나 설정할 수 있고
+        offset() 메서드는 문서(document)를 기준으로 선택한 요소의 가로,세로로 떨어진 위치의 좌표값을
+        반환하거나 설정할 때 사용합니다.
+    </p>
+    <P>position() 보다 offset()의 활용도가 높습니다.</P>
+    <h2>예시</h2>
+    <div id="box_wrap">
+        <p class="box">박스</p>
+    </div>
+    <p class="txt_1">절대 top 위치값 : <span></span></p>
+    <p class="txt_2">상대 top 위치값 : <span></span></p>
+</body>
+</html>

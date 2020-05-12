@@ -133,25 +133,20 @@
         //갤러리 누르면 ~ 갤러리 보여줘 (#notice는 감춰!)
         //공지사항 첫번쨰 게시물을 클릭하면 팝업창을 보여줘!
         function tab(){
-            notice_on();
-            gallery_on();
-        }
-        function notice_on(){
+    
             $(".board_title li").click(function(){
-              //   console.log("클릭한 LI : "+$(this).index());
-              if($(this).hasClass("on")) {
-              $(this).siblings().removeClass("on");
-              $(this).addClass("on");
-              $("#gallery").toggleClass("hide");
-              // on을 갖고 있지 않다면
-              // 기존에 누군가 갖고 있던 on을 삭제하고,
-              // 지금 클릭한 (on이 없던것에) 추가해
+               // console.log("클릭한 LI : "+$(this).index());
+              if(!$(this).hasClass("on")) {
+                $(this).siblings().removeClass("on");
+                $(this).addClass("on");
+                $("#gallery").toggleClass("hide");
+                // on을 갖고 있지 않다면
+                // 기존에 누군가 갖고 있던 on을 삭제하고,
+                // 지금 클릭한 (on이 없던것에) 추가해
               }
             });
         }
-        function gallery_on(){
-
-        }
+            
             function popup(){
                 popup_open();
                 popup_close();
@@ -194,11 +189,11 @@
                 </div>
                 <div class="board_contents">
                     <ul id="notice">
-                        <li>5월 배송일정 안내 [2020-04-30]</li>
-                        <li>여름 패션/의류/여성 신상품 입고알림 [2020-03-10]</li>
-                        <li>쇼핑몰 리뉴얼로 인한 시스템 작업안내 [2020-02-11]</li>
-                        <li>오픈 기념 신규 회원가입 무료배송 이벤트 [2020-01-20]</li>
-                        <li>사세 확장으로 인한 웹디자이너/MD 채용공고 [2019-11-15]</li> 
+                        <li>5월 배송일정 안내 <span>[2020-04-30]</span></li>
+                        <li>여름 패션/의류/여성 신상품 입고알림 <span>[2020-03-10]</span></li>
+                        <li>쇼핑몰 리뉴얼로 인한 시스템 작업안내 <span>[2020-02-11]</span></li>
+                        <li>오픈 기념 신규 회원가입 무료배송 이벤트 <span>[2020-01-20]</span></li>
+                        <li>사세 확장으로 인한 웹디자이너/MD 채용공고 <span>[2019-11-15]</span></li> 
                     </ul>
                     <ul id="gallery" class="hide">
                         <li>

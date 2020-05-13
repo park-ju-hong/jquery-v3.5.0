@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>요소 위치 메서드 예제</title>
@@ -44,41 +44,71 @@
             background: #333;
             color: lightslategrey;
         }
+        .fixed {
+            position:fixed;
+            top:0;
+            left:0;            
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-    $(document).ready(function(){
-        $("#gnb > li").click(function(){
-            var LI = $(this); //클릭한 li qistn LI에 대입해
-            var ID = LI.children().text(); //클릭한 LI의 자식요소 a의 컨텐츠 값을 알아와
-            if(ID === "home"){
+        let pos,SPEED=400;
+         $(document).ready(function(){
+             gnb();            
+            });
+         function gnb(){
+             $("#gnb > li").click(function(){            
+                var LI = $(this); // 클릭한 li를 변수 LI에 대입해
+                var ID = LI.children().text(); // 클릭한 LI의 자식요소 a의 컨텐츠 값을 알아와                        
+                moving(ID); // moving() 함수에 ID를 매개변수로 전달해서 페이지를 구분,이동시킨다  
+                });    
+            }
+            function moving(ID){
+                switch(ID){
+                    case "home":pos = $("."+ID).offset().top;
+                    break;
+                    case "about":pos = $("."+ID).offset().top;
+                    break;
+                    case "work":pos = $("."+ID).offset().top;
+                    break;
+                    case "hireme":pos = $("."+ID).offset().top;
+                    break;
+                    default:pos=0;
+                    break;
+                }
+                if(pos > 80) {
+                    $("html,body").stop().animate({
+                    scrollTop:pos - $("#header").outerHeight()
+                    },SPEED,function(){
+                        $("#header").addClass("fixed");
+                    });
+                }else{
+                    $("#header").addClass("fixed");
+                }
+                }
+         /*if(ID === "home"){
                 var pos = $("."+ID).offset().top;
-                console.log("pos :"+pos);
                 $("html,body").stop().animate({
                     scollTop:pos
                 },400);
             }else if(ID === "about"){
                 var pos = $("."+ID).offset().top;
-                console.log("pos :"+pos);
                 $("html,body").stop().animate({
                     scollTop:pos
                 },400);
             }else if(ID === "work"){
                 var pos = $("."+ID).offset().top;
-                console.log("pos :"+pos);
                 $("html,body").stop().animate({
                     scollTop:pos
                 },400);
             }else{
                 var pos = $("."+ID).offset().top;
-                console.log("pos :"+pos);
                 $("html,body").stop().animate({
                     scollTop:pos
                 },400);   
             } 
-        });
-    });
-    </script>
+        }); */
+</script>
 </head>
 <body class="home">
     <h1>요소 위치 메서드 예제</h1>

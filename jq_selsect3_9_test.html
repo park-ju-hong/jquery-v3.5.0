@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 편집 메서드</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        //$(대상).after("추가요소") vs $("추가요소").insertAfter("대상")
+        $("#wrap p:eq(2)").after("<P>After</p>");
+        $("<p>insertAfter</p>").insertAfter("#wrap p:eq(1)");
+        //$(대상).before("추가요소") vs $("추가요소").insertBefore("대상")
+        $("#wrap p:eq(1)").before("<p>Before</p>");
+        $("<p>insertBefore</p>").insertBefore("#wrap p:eq(0)");
+   });
+    </script>
+</head>
+<body>
+    <h1>객체 편집 메서드</h1>
+    <h2>p.233~234</h2>
+    <p>before(),insertBefore(),after(),insertAfter() 메서드에 대해서 알아보자</p>
+    <div id="wrap">
+        <p>내용 1</p>
+        <p>내용 2</p>
+        <p>내용 3</p>
+    </div>
+</body>
+</html>

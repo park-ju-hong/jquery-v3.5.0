@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 이벤트</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        // a, form 태그에 클릭 이벤트 적용시 기본 이벤트 차단하기
+        // 기본이벤트 : click,dbclick 이벤트를 등록하면 a,form이 링크된 주소로 이동하는
+        기본상태       
+    });
+    </script>
+    <style>
+        .contents > div {
+            height: 1000px;
+            background: gold;
+        }
+        .contents > div:nth-child(2n){
+            background: #0f0;
+        }
+        .nav {
+            position: fixed;
+            right:5%;
+            top: 50%;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        //p.256
+        $("a").click(function(e){
+        //.. 실행할 코드
+        //     alert($(this).text());
+        //     return false
+        // return false 반환하지말고 함수를 끝내라!
+            e.preventDefault();
+            //$(this) = 나 자신, (모든) a
+            alert("클릭한 메뉴 :"+$(this).text());
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>기본 이벤트 차단하기</h1>
+    <h2>p.255~257</h2>
+    <p> a,form 클릭시 페이지가 위로 이동하는 기본 이벤트를 차단해봅니다
+    </p>
+    <h2>예시</h2>
+    <div class="nav">
+        <ul id="gnb">
+            <li><a href="javascript:;">페이지1</a></li>
+            <li><a href="#" onclick="return false;">페이지2</a></li>
+            <li><a href="#">페이지3</a></li>
+            <li><a href="#">페이지4</a></li>
+        </ul>
+    </div>
+    <div class="contents">
+        <div id="page1">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, asperiores explicabo modi hic at aut.</p>
+        </div>
+        <div id="page2">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, asperiores explicabo modi hic at aut.</p>
+        </div>
+        <div id="page3">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, asperiores explicabo modi hic at aut.</p>
+        </div>
+        <div id="page4">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, asperiores explicabo modi hic at aut.</p>
+        </div>
+    </div>
+</body>
+</html>

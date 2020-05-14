@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 이벤트</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        var h1 = $(".img1").height();
+        console.log("ready event : "+h1);
+    });
+    $(window).load(function(){
+        var h2 = $(".img1").height();
+        console.log("ready event : "+h2);
+    });
+    </script>
+</head>
+<body>
+    <h1>로딩 이벤트</h1>
+    <h2>p.254</h2>
+    <p>.ready()와 load() 이벤트 메서드에 대해서 알아봅시다.
+        .ready() 메서드는 html 문서 객체가 모두 로딩(load,loading)이 끝나면 이벤트를
+        발생시키고, .load() 메서드는 외부 연결 요소 (iframe,img,video)의 로딩이 끝나면
+        이벤트를 발생시킵니다.
+    </p>
+    <h2>예시</h2>
+    <P>
+        <img src="https://via.placeholder.com/300x300" alt='placeholder' class="img1">
+    </P>
+</body>
+</html>

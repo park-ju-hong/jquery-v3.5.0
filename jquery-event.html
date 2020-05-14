@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 이벤트</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".btn1").click(function(){
+            $(".btn1").parent().next().css("color","#f00");
+        });
+        $(".btn2").on({
+            "mouseover focus" :function(){
+            $(".btn2").parent().next().css("color","#ddd");
+         },
+         "mouseout blur":function(){
+            $(".btn2").parent().next().css("color","#f0f");
+         }
+        });
+    });
+        //mouse event : 웹사이트, 웹 서비스 keyboard event : 웹 게임(비행기,자동차)
+    </script>
+</head>
+<body>
+    <h1>이벤트(event)</h1>
+    <h2>p.245</h2>
+    <p>이벤트(event)란? 방문자가 웹사이트에 방문해서 취하는 모든 동작(클릭, 드래그,더블클릭, 탭..)을
+        이벤트라고 합니다. 이벤트가 발생했을때 코드를 실행시키는 것을 이벤트 핸들러(event handler)라고 합니다.
+    </p>
+    <h2>예시</h2>
+    <p> 
+        <button class="btn1">버튼1</button>
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo molestiae cumque sunt placeat obcaecati modi tempore rem culpa voluptas sit eaque, animi maxime consequuntur eum dolore corporis dolorem, debitis quisquam!</p>
+    <p> 
+        <button class="btn2">버튼2</button>
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur.</p>
+    <!--블록요소  <button id="btn">버튼</button> -->
+    <!-- 인라인 요소 <input butoon id="btn">버튼-->
+</body>
+</html>

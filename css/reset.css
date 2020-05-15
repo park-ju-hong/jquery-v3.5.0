@@ -1,0 +1,11 @@
+body {
+    /* 지시하지 않은 요소,컬러,사이즈,형태는 수험자가 자유롭게..단!,
+    주제와 어울리게 */
+    font:16px/1.5 dotum,gulim,batang;
+    color:#222328;
+    background:#ffffff; /* 시험이니까 적어줍니다 */
+}
+a,a:link {
+    color:#222328;
+    text-decoration:none;
+}

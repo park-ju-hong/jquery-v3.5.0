@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 이벤트</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        //P.258
+
+        //mouseover 이벤트 핸들러
+        //$("이벤트 대상").mouseover(function)(){ 실행할 자바스크립트 코드});
+        //$("이벤트 대상").on("mouseover",function(){실행할 코드});
+        //$("이벤트 대상").mouseover();
+
+        //mouseout 이벤트 핸들러
+        //$("이벤트 대상").mouseout(function(){실행할 코드});
+        //$("이벤트 대상").on("mouseout,function(){실행할 코드});
+        //$("이벤트 대상").mouseout();
+
+        // hover 이벤트 핸들러
+        // $("이벤트 대상").hover(
+        // function(){ 마우스 오버시 실행할 코드},
+        // function(){ 마우스 아웃시 실행할 코드}
+        // );
+        $(".btn1").mouseover(function(){
+           $(".txt1").css("background-color","yellow");
+       });
+       $(".btn1").mouseout(function(){
+           $(".txt1").css("background-color","white");
+       });
+       $(".btn2").hover(
+           function(){
+               $(".txt2").css("background-color","coral");
+           },
+           function(){
+               $(".txt2").css("background-color","white");
+           }
+       );
+    //    $(".btn1").on({
+    //        mouseover:function(){
+
+    //        },
+    //        mouseout:function(){
+
+    //        },
+    //        click:function(){
+
+    //        }
+    //    })
+    });
+    </script>
+</head>
+<body>
+    <h1>마우스 이벤트</h1>
+    <h2>p.257, p.259</h2>
+    <p>mouseover(), mouseout(), hover()이벤트 메서드는 마우스 포인터를 선택한
+        요소에 올릴때 , 벗어날때, 올리거나 벗어날때 발생하는 이벤트를 처리하는 이벤트 핸들러입니다.
+        <!-- mouseover , mouseout 단독 이벤트  hover 그룹이벤트-->
+    </p>
+    <h2>예시</h2>
+    <p>
+        <button class="btn1">Mouse Over /Mouse Out</button>
+    </p>
+    <p class="txt1">
+    내용 1 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, minus.
+    </p>
+    <p>
+        <button class="btn2">Hover</button>
+    </p>
+    <p class="txt2">
+    내용 2 - Lorem ipsum dolor, sit amet consectetur adipisicing.
+    </p>
+</body>
+</html>

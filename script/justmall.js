@@ -15,16 +15,16 @@ function gnb(){
         // $(".lnb").hide();
     // })
 // }
-$("#gnb > li").hover(
-    function(){
-        $(this).addClass("on");
-        $(".lnb").show();
+    $("#gnb > li").on({
+        mouseover:function(){
+            $(this).addClass("on");
+            $(".lnb").show(1000);
     },
-    function(){
-        $(this).removeClass("on");
-        $(".lnb").hide();
+        mouseout:function(){
+            $(this).removeClass("on");
+            $(".lnb").hide();
     }
-);
+    });
 }
 function tabs(){ // tabs 기능 정의
     $(".board_title li").click(function(){

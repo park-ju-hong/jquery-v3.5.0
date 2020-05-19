@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 이벤트</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        html{
+            cursor: none;
+        }
+    </style>
+    <script>
+    $(document).ready(function(){
+        $(document).on("mousemove",function(e){
+            $(".posX").text(e.pageX);
+            $(".posY").text(e.pageY);
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>mousemove 메서드</h1>
+    <h2>p.262</h2>
+    <p>mousemove()마우스가 움직이는 동안 발생하는 이벤트를 처리하는 메서드</p>
+    <h2>예시</h2>
+    <p>x좌표: <span class="posX">0</span></p>
+    <p>y좌표: <span class="posY">0</span></p>
+</body>
+</html>

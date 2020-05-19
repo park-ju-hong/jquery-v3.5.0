@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 이벤트</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1>마우스 이벤트</h1>
+    <h2>p.260</h2>
+    <p>mouseover(),mouseout() vs mouseenter(), mouseleave()의 차이에 대해 알아봅시다.</p>
+    <p>선택한 요소에 닿거나 선택한 요소에서 마우스가 벗어나야 이벤트가 발생되는
+        메서드는 mouseover (),mouseout() 이고, 선택한 요소가 포함된 범위에 닿거나
+        벗어나면 이벤트가 발생되는 메서드가 mouseenter(), mouseleave() 입니다.
+    </p>
+    <h2>예시</h2>
+    <h3>mouseover/mouseout</h3>
+    <div id="box_1">
+        <p><a href="#">내용1</a></p>
+        <p><a href="#">내용2</a></p>
+        <p><a href="#">내용3</a></p>
+    </div>
+    <h3>mouseenter/mouseleave</h3>
+    <div id="box_2">
+        <p><a href="#">내용4</a></p>
+        <p><a href="#">내용5</a></p>
+        <p><a href="#">내용6</a></p>
+    </div>
+    <script>
+        $(document).ready(function(){
+             //p.260
+             $("#box_1").on({
+                 mouseover:function(){
+                     $("#box_1").css("background-color","yellow");
+                 },
+                 mouseout:function(){
+                    $("#box_1").css("background-color","white");
+                 }
+        });
+        $("#box_2").on({
+            mouseenter:function(){
+             $("#box_2").css("background-color","pink");
+            },
+            mouseleave:function(){
+             $("#box_2").css("background-color","white");
+            }
+            });
+        });   
+    </script>
+</body>
+</html>

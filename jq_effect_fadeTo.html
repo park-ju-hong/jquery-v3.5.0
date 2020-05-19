@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>효과 및 애니메이션 메서드</title>
-    <script src="script/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
     <h1>효과메서드</h1>
@@ -25,18 +25,44 @@
     </p>
     <div id="box">
         <div class="content">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum quibusdam asperiores iusto quae iste libero aliquid consequatur repellat tenetur suscipit, consequuntur cupiditate consectetur reiciendis ipsum voluptas id quaerat eos animi.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda veniam ipsum provident eos corporis quis, sapiente, vel ipsam delectus libero officiis quasi illo itaque suscipit quaerat nemo nisi error ducimus.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum quibusdam asperiores iusto quae iste libero aliquid consequatur repellat tenetur suscipit, consequuntur cupiditate consectetur reiciendis ipsum voluptas id quaerat eos animi.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, accusantium. Voluptate perferendis eaque totam, odit dolor nam nesciunt quidem illo accusamus nemo amet reprehenderit, ipsum numquam nostrum iure necessitatibus nihil?
         </div>
     </div>
     <script>
         //.ready(html 내용을 불러와) <--> .load(외부통신을 불러와)
-        $(document).ready(function(){
+       // $(document).ready(function(){
             // 기본형
-        });
+       // });
         // 또는
+        // 단축형
         $(function(){
-            // 단축형
-        })
+           $(".btn2").hide();
+           $(".btn1").on("click",function(){
+               $("#box").slideUp(1000,"linear",
+               function(){
+                   $(".btn1").hide();
+                   $(".btn2").show();
+               });
+           });
+            $(".btn2").on("click",function(){
+               $("#box").fadeIn(1000,"swing",
+               function(){
+                   $(".btn1").show();
+                   $(".btn2").hide();
+               });
+             });
+             $(".btn3").on("click",function(){
+                 $("#box").slideToggle(1000,"linear");
+             });
+             $(".btn4").on("click",function(){
+                 $("#box").fadeTo("fast",0.3);
+             });
+             $(".btn5").on("click",function(){
+                 $("#box").fadeTo("fast",1);
+             });
+        });
     </script>
 </body>
 </html>

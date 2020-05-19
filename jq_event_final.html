@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 이벤트 총정리 실습</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        var baseFont=14;
+        $("#btn_group button").on("click",function(){
+            var choice = $(this).attr("id");
+            console.log(choice);
+            switch(choice){
+                case "zoomIn":baseFont+=1;
+                break;
+                case "zoomOut":baseFont-=1;
+                break;
+                case "zoomRest":baseFont=14;
+                break;
+                default:console.log("글자크기 :"+baseFont);
+            }
+            if(baseFont <=8 || baseFont >= 20){
+                alert("더이상 조절이 불가능 합니다");
+                baseFont=14;
+                $("#contents p").css("font-size",baseFont);
+            } else{
+                $("#contents p").css("font-size",baseFont);
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>총정리 실습</h1>
+    <h2>p.284~285</h2>
+    <p>글자 확대,축소 버튼 만들고 이벤트 핸들러 메서드를 이용해 기능을 구현</p>
+    <h2>요구사항</h2>
+    <ul>
+        <li>글자크기 : 8px(축소), 14px(기본), 20px(최대)</li>
+        <li>확대 또는 축소 버튼클릭시 +,-  1px 씩 확대/축소 기능</li>
+        <li>100% 버튼: 기본값 설정(14px)</li>
+        <li>설정된 글자 크기에 맞춰 문장의 글자 크기를 변경</li>
+    </ul>
+    <h2>예제</h2>
+<div id="btn_group">
+    <button id="zoomOut">축소</button>
+    <button id="zoomReset">기본</button>
+    <button id="zoomIn">확대</button>
+</div>
+<div id="contents">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, voluptates eius provident quo, eum odit eaque beatae omnis officiis aperiam vitae quos. Ratione expedita facere ullam incidunt ea corporis eius.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi quod facilis voluptatum quibusdam voluptatem a architecto, perferendis debitis ratione sed expedita dolore molestias vel obcaecati illo aspernatur aliquid rem inventore.</p>
+</div>
+</body>
+</html>

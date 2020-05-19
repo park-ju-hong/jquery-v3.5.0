@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 이벤트 예제</title>
+    <style>
+        *{
+            margin: 0;  
+            padding: 0;
+        }
+        header{
+            background: orange;
+            height: 80px;
+            display: flex;
+        }
+        header .logo{
+            width: 200px;
+            height: 40px;
+        }
+        header #gnb li {display: inline-block;}
+
+        .page {height: 1000px;}
+
+        .header-fixed{
+            position: fixed;
+            width: 100%;
+            height: 80px;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function(){ //HTMl문서 객체가 모두 로드되어서 화면에 표시되면~
+            $(window).on("scroll",function(){
+                var sc_top = $(this).scrollTop();
+                if(sc_top >= 500) { //스크롤바의 높이 500px
+                    $("header").addClass("header-fixed");
+                } else {
+                    $("header").removeClass("header-fixed");
+                }
+            });
+            $("#gnb > li").on("click",function(){
+                var idxNum = $(this).index();
+                console.log(idxNum);
+                var page = $(".page");
+                var movePos;
+                if(idxNum == 0) {
+                    movePos = 0;
+                } else if(idxNum == 1) {//about page : 0
+                movePos = page.eq(0).offset().top;
+                } else if(idxNum == 2) {//about page : 1
+                movePos = page.eq(1).offset().top;
+                }else { //contact
+                movePos = page.eq(2).offset().top;
+                }
+                console.log("이동할 페이지의 문서로부터 떨어진 위치값"+movePos);
+            })
+            
+        });
+    </script>
+</head>
+<body>
+    <h1>개념</h1>
+    <p>메뉴 클릭하면, 메뉴의 인덱스(index)값과 일치하는 내용의 인덱스 페이지로 부드럽게 이동을 하는 예제</p>
+    <p>스크롤 이벤트와 jquery조작 메서드를 이용해서 header를 고정하게 할 것</p>
+    <h2>예시</h2>
+    <header>
+        <h3 class="notext"> 헤더영역</h3>
+        <div class="logo">로고</div>
+        <div class="nav">
+            <ul id="gnb">
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">work</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+        </div>
+    </header>
+        <section>
+            <h3 class="notext">본문영역</h3>
+            <article class="page">
+                <h4>about page</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, dicta?</p>
+            </article>
+            <article class="page">
+                <h4>work page</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, aut.</p>
+            </article>
+            <article class="page">
+                <h4>content page</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, aut.</p>
+            </article>
+        </section>
+        <footer>
+            <address>
+                주소 : 광주광역시 서구 경열로3 (농성동) , 한울직업전문학교
+             </address>
+             <p> 대표 : 홍길동 사업자등록번호 : 광주-서구-제15호</p>
+             <p> 전화번호 : 062-262-7797</p>
+        </footer>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 수평 슬라이드</title>
+    <style>
+        .slide{
+            width: 1200px;
+            height: 300px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        #slideImgs {
+            width: 4800px;
+            height: 300px;
+        }
+        #slideImgs > div {
+            float: left;
+            width:1200px;
+            height: 300px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        //p.294
+        //타이밍 함수
+        //setInterval(): - 매 ms초 마다 반복
+        //setTimeout(); - 정해진 ms초 후에 실행(한번만)
+        //함수 (function)화
+        var imgWidth,index; // 선언(전역변수)
+    $(document).ready(function(){
+        imgWidth = 1200; // 값을 초기화
+        index = 0; // 초기화
+//        slide(); //함수를 1회 호출(=실행)
+//        vs
+       setInterval(slide,1000); //함수를 1초마다 (계속) 실행(=호출) 
+    });
+    function slide(){
+             // -1200 = -1 * 1200 * 0.1.2.3
+             if(index>=4) index = 0; // 단순 if문, 조건이 참일때만 실행
+        var nPos = -1 * imgWidth * index; // -1 *이미지 크기 * 이미지 인덱스 번호;
+         $("#slideImgs").animate({
+            marginLeft:nPos
+        },3000,"swing");
+        index=index+1;
+    }
+    </script>
+</head>
+<body>
+    <h1>제이쿼리 수평 슬라이드</h1>
+    <h2>.animate() 메서드를 이용한 슬라이드 제작</h2>
+    <p>웹디자인기능사 실기, 업무에서 사용한 슬라이드 이미지 제작을 수평/수직등의 방향으로 나누어 제작해봅시다</p>
+    <h2>요구사항</h2>
+    <ul>
+        <li>슬라이드는 3장의 이미지와 관련 텍스트를 제공하고 텍스트는 글자체, 굵기, 색상 , 크기를 적절하게
+            설정하여 가독성을 높여서 배치
+        </li>
+        <li>매 3초 이내로 이미지가 좌,우로 움직이게 (이미지만 바뀌면 안됨)</li>
+        <li>웹사이트를 열었을때 자동으로 시작, 반복하게</li>
+    </ul>
+    <h2>구현</h2>
+    <div class="slide">
+        <div id="slideImgs">
+        <div>
+            <img src="images/img1.jpg" width="1200" height="300" alt="img1">
+            <div class="info">
+                <h2>슬라이드 이미지 제목1</h2>
+                <p>슬라이드 이미지 내용1</p>
+            </div>
+        </div>
+        <div>
+            <img src="images/img2.jpg"  width="1200" height="300" alt="img2">
+            <div class="info">
+                <h2>슬라이드 이미지 제목2</h2>
+                <p>슬라이드 이미지 내용2</p>
+            </div>
+            </div>
+            <div>
+                <img src="images/img3.jpg" width="1200" height="300" alt="img3">
+                <div class="info">
+                    <h2>슬라이드 이미지 제목3</h2>
+                    <p>슬라이드 이미지 내용3</p>
+            </div>
+            </div>
+             <div>
+                <img src="images/img4.jpg" width="1200" height="300" alt="img4">
+                <div class="info">
+                    <h2>슬라이드 이미지 제목4</h2>
+                     <p>슬라이드 이미지 내용4</p>
+            </div>
+        </div>
+    </div> <!-- slideImgs-->
+    </div>
+</body>
+</html>

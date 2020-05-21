@@ -1,0 +1,13 @@
+$font-stack:Helvetica,dotum,sans-serif;
+$primaty-color:#f00;
+$base-size:1em;
+body{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-size:$base-size;
+}
+p{
+    color: lighten($primary-color,50%);
+}

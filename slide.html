@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 수직 슬라이드</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .slide{
+            width: 1200px;
+            height: 300px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        #slideImg{
+            width: 1200px;
+            height: 1200px;
+        }
+
+        #slideImg > div {
+            width: 1200px;
+            height: 300px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        var imgHeight,index;
+        $(document).ready(function(){
+            //init(); 환경설정 초기화
+            imgHeight=300;
+            index=0;
+            //imgCount= $("#slideImg > div").length; //이미지 갯수
+            setInterval(slide,1000);
+        });
+
+     function slide(){
+        if(index >=4)//이미지 갯수  
+        index = 0;
+        var nPos = -1 * imgHeight * index;
+        $("#slideImg").animate({
+            marginTop:nPos
+        },3000,"swing");
+        index=index+1;
+    };
+    </script>
+</head>
+<body>
+    <h1>제이쿼리 수직 슬라이드</h1>
+    <h2>.animate() 메서드를 이용한 슬라이드 제작</h2>
+    <h2>구현</h2>
+    <div class="slide">
+        <div id="slideImg">
+            <div>
+                <img src="images/img1.jpg" width="1200" height="300" alt="img1">
+            </div>
+            <div>
+                <img src="images/img2.jpg" width="1200" height="300" alt="img2">
+            </div>
+            <div>
+                <img src="images/img3.jpg" width="1200" height="300" alt="img3">
+            </div>
+            <div>
+                <img src="images/img4.jpg" width="1200" height="300" alt="img4">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
